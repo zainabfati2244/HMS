@@ -3,11 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hospital Management System - Login</title>
+  <meta name="theme-color" content="#0d7774">
+  <title>Welcome | Medicare Hospital</title>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/password-toggle.css">
 </head>
-<body>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-art" aria-label="Hospital introduction">
+      <a class="brand" href="index.html"><span class="brand-mark">M+</span><span>MEDICARE<span class="brand-light">HOSPITAL</span></span></a>
+      <div class="art-copy">
+        <span class="eyebrow">CARE THAT CONNECTS</span>
+        <h1>Your health.<br>Our priority.</h1>
+        <p>One secure place to manage your care, appointments and hospital services.</p>
+      </div>
+      <div class="art-note"><span class="pulse-dot"></span> Here for you, every step of the way</div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="mobile-brand brand"><span class="brand-mark">M+</span><span>MEDICARE<span class="brand-light">HOSPITAL</span></span></div>
+      <div class="auth-card">
+        <div id="login-form" class="auth-form">
+          <span class="eyebrow">WELCOME BACK</span>
+          <h2>Sign in to your account</h2>
+          <p class="form-intro">Enter your details to continue to your dashboard.</p>
+          <form id="login-form-fields">
+            <label for="login-email">Email address</label>
+            <input type="email" id="login-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <label for="login-password">Password</label>
+            <div class="password-wrap"><input type="password" id="login-password" name="password" placeholder="Enter your password" autocomplete="current-password" required><button type="button" class="password-toggle" aria-label="Show password" aria-pressed="false" data-password-toggle="login-password"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+            <button class="auth-submit" type="submit"><span>Sign in</span><span aria-hidden="true">→</span></button>
+          </form>
+          <p class="forgot-link"><button type="button" class="text-button" data-show="forgot">Forgot password?</button></p>
+          <p class="form-switch">New to Medicare? <button type="button" class="text-button" data-show="register">Create an account</button></p>
+        </div>
+
+        <div id="register-form" class="auth-form is-hidden" aria-hidden="true">
+          <span class="eyebrow">GET STARTED</span>
+          <h2>Create your account</h2>
+          <p class="form-intro">A few details help us set up your hospital account.</p>
+          <form id="register-form-fields">
+            <label for="reg-name">Full name</label>
+            <input type="text" id="reg-name" name="name" placeholder="Your full name" autocomplete="name" required>
+            <label for="reg-email">Email address</label>
+            <input type="email" id="reg-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <label for="reg-password">Password</label>
+            <div class="password-wrap"><input type="password" id="reg-password" name="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required><button type="button" class="password-toggle" aria-label="Show password" aria-pressed="false" data-password-toggle="reg-password"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+            <label for="reg-role">I am a</label>
+            <select id="reg-role" name="role" required>
+              <option value="patient">Patient</option><option value="doctor">Doctor</option><option value="cashier">Cashier</option>
+            </select>
+            <button class="auth-submit" type="submit"><span>Create account</span><span aria-hidden="true">→</span></button>
+          </form>
+          <p class="form-switch">Already registered? <button type="button" class="text-button" data-show="login">Sign in</button></p>
+        </div>
+        <div id="forgot-form" class="auth-form is-hidden" aria-hidden="true">
+          <span class="eyebrow">ACCOUNT RECOVERY</span>
+          <h2>Reset your password</h2>
+          <p class="form-intro">Enter your account email and we’ll send you a secure reset link.</p>
+          <form id="forgot-form-fields">
+            <label for="forgot-email">Email address</label>
+            <input type="email" id="forgot-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <button class="auth-submit" type="submit"><span>Send reset link</span><span aria-hidden="true">→</span></button>
+          </form>
+          <p class="form-switch"><button type="button" class="text-button" data-show="login">← Back to sign in</button></p>
+        </div>
+        <div id="auth-message" class="auth-message" role="status" aria-live="polite"></div>
+        <p class="secure-note"><span aria-hidden="true">▣</span> Your information is protected and secure</p>
+      </div>
+      <footer class="auth-footer">© 2026 Medicare Hospital · Compassionate care, connected</footer>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-config.js"></script>
   <script src="js/auth.js"></script>
 </body>
